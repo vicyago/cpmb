@@ -1,0 +1,153 @@
+/* Set base styles for the entire page */
+body {
+  font-family: Arial;
+  font-size: 1.2rem;
+  margin: 0; /* Remove default margin */
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+/* Create a responsive container with maximum width */
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Style for the navigation bar */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #222;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000; /* Ensure the navigation is above other elements */
+}
+
+/* Style for the container inside the navigation bar */
+.nav .container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Style for the navigation links */
+.nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  justify-content: center;
+  margin-right: 3.3333rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.8333rem 1.6667rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Styles for the active state of the navigation bar */
+.nav.active {
+  background-color: #fff;
+  box-shadow: 0 0.1667rem 0.8333rem rgba(0, 0, 0, 0.3);
+}
+
+.nav.active a {
+  color: #222;
+}
+
+.nav.active .container {
+  padding: 0.6667rem 0;
+}
+
+/* Styles for current and hover states of navigation links */
+.nav a.current,
+.nav a:hover {
+  color: #a5a5a5;
+}
+
+/* Styles for the burger menu icon */
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  margin: 2rem 2rem 0 0;
+}
+
+.burger-menu .bar {
+  width: 1.6667rem;
+  height: 0.25rem;
+  background-color: #fff;
+  margin: 0.4167rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.2rem 0.5rem rgba(59, 59, 59, 0.2);
+}
+
+/* Styles for the mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  right: 0;
+  width: 35%;
+  background-color: #272727;
+  z-index: 999; /* Adjust to be below the nav */
+  overflow-y: auto;
+  box-sizing: border-box; /* Include padding in the width */
+  border-top: 0.3rem solid #444;
+  transform: translateX(100%); /* Start off-screen on the right */  
+}
+
+.mobile-menu.open {
+  display: block;
+  transform: translateX(0); /* Slide in from the right when open */
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu li {
+  margin: 0;
+  width: 100%;
+  border-top: 0.3rem solid #444;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: all 0.3s ease-in-out;
+}
+
+.mobile-menu a:hover {
+  background-color: #333;
+}
+
+/* Media query to adjust styles for smaller screens */
+@media only screen and (max-width: 48rem) {
+  /* Equivalent to 768px / 1.2 */
+  .burger-menu {
+    display: block;
+  }
+
+  /* Hide desktop menu by default */
+  .nav .desktop-menu {
+    display: none;
+  }
+
+  /* Adjust mobile menu position and height */
+  .mobile-menu {
+    top: 7rem;
+    height: auto;
+    border-radius: 0.5rem 0 0 0.5rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(59, 59, 59, 0.2);
+  }
+
+  /* Show mobile menu when nav has the active class */
+  .mobile-menu ul {
+    display: flex;
+    flex-direction: column; /* Display items in a column */
+  }
+}
