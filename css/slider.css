@@ -1,0 +1,96 @@
+#slider-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  max-width: 100%;
+}
+
+/* Styling for navigation buttons */
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(
+    -10vh
+  ); /* Position buttons vertically at the center with an offset (adjust as needed) */
+  font-size: 3rem; /* Set the font size for navigation buttons */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  z-index: 2;
+}
+
+/* Styling for the previous button */
+.prev {
+  left: 1rem;
+}
+
+/* Styling for the next button */
+.next {
+  right: 1rem;
+}
+
+/* Container for the slider and overlay */
+.slider-overlay-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Adjust as needed */
+  }
+
+/* Overlay styles */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 102, 255, 0.425); /* Blue color with 50% opacity */
+  z-index: 1; /* Place above the slider */
+}
+
+/* Media Query for Mobile Screens */
+@media (max-width: 767px) {
+  #slider-container {
+    height: auto; /* Adjust the height for mobile screens */
+    -webkit-box-shadow: none; /* Remove box shadow for better mobile display */
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .slide img {
+    max-height: 25vh; /* Adjust the maximum height of images for mobile screens */
+  }
+
+  button {
+    font-size: 2rem; /* Adjust the font size for smaller screens */
+    top: 15%;
+    transform: translateY(
+      -5vh
+    ); /* Adjust the vertical position of buttons for smaller screens */
+  }
+
+  /* Styling for the previous button */
+  .prev {
+    left: 0.2rem;
+  }
+
+  /* Styling for the next button */
+  .next {
+    right: 0.2rem;
+  }
+}

@@ -35,3 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Additional code you want to run after DOMContentLoaded
   // You can add any other JavaScript code that should run after the page has loaded here
 });
+
+window.addEventListener('scroll', function () {
+  var nav = document.querySelector('.nav');
+  nav.classList.toggle('scrolled', window.scrollY > 0);
+});

@@ -18,9 +18,20 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background-color: #222;
+  background-color: transparent; /* Start transparent */
   transition: all 0.3s ease-in-out;
   z-index: 1000; /* Ensure the navigation is above other elements */
+  border-bottom: 1px solid #f0f0f03a; /* Thin, off-white border at the bottom */
+}
+
+/* Style for the navigation bar after first scroll */
+.nav.scrolled {
+  background-color: #ffffff; /* Change to white on scroll */
+  border-bottom: 1px solid #f0f0f0; /* Thin, off-white border at the bottom */
+}
+
+.nav.scrolled a {
+  color: #000000; /* Change to black text color on scroll */
 }
 
 /* Style for the container inside the navigation bar */
@@ -42,19 +53,19 @@ body {
 
 .nav a {
   text-decoration: none;
-  color: #fff;
+  color: #ffffff;
   padding: 0.8333rem 1.6667rem;
   transition: all 0.3s ease-in-out;
 }
 
 /* Styles for the active state of the navigation bar */
 .nav.active {
-  background-color: #fff;
+  background-color: #7a7a7a;
   box-shadow: 0 0.1667rem 0.8333rem rgba(0, 0, 0, 0.3);
 }
 
 .nav.active a {
-  color: #222;
+  color: #575757;
 }
 
 .nav.active .container {
@@ -71,13 +82,13 @@ body {
 .burger-menu {
   display: none;
   cursor: pointer;
-  margin: 2rem 2rem 0 0;
+  margin: 1.5rem 3rem 0 0;
 }
 
 .burger-menu .bar {
   width: 1.6667rem;
   height: 0.25rem;
-  background-color: #fff;
+  background-color: #000000;
   margin: 0.4167rem 0;
   border-radius: 0.5rem;
   box-shadow: 0 0.2rem 0.5rem rgba(59, 59, 59, 0.2);
@@ -89,11 +100,10 @@ body {
   position: fixed;
   right: 0;
   width: 35%;
-  background-color: #272727;
+  background-color: #ffffff;
   z-index: 999; /* Adjust to be below the nav */
   overflow-y: auto;
   box-sizing: border-box; /* Include padding in the width */
-  border-top: 0.3rem solid #444;
   transform: translateX(100%); /* Start off-screen on the right */  
 }
 
@@ -111,18 +121,43 @@ body {
 .mobile-menu li {
   margin: 0;
   width: 100%;
-  border-top: 0.3rem solid #444;
+  border-top: 0.3rem solid #999999;
 }
 
 .mobile-menu a {
   text-decoration: none;
-  color: #fff;
+  color: #000000;
   display: block;
   transition: all 0.3s ease-in-out;
 }
 
 .mobile-menu a:hover {
   background-color: #333;
+}
+
+/* main content */
+main {
+  background-color: #f8f8f2;
+}
+
+/* Centered text styles */
+.centered-text {
+  position: absolute;
+  top: 50%; /* Adjust as needed to vertically center the text */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2; /* Place above the slider */
+}
+
+.centered-text h1 {
+  font-size: 3rem;
+  color: #ffffff; /* Set the desired text color */
+}
+
+.centered-text p {
+  font-size: 2rem;
+  color: #ffffff; /* Set the desired text color */
 }
 
 /* Media query to adjust styles for smaller screens */
@@ -139,7 +174,7 @@ body {
 
   /* Adjust mobile menu position and height */
   .mobile-menu {
-    top: 7rem;
+    top: 5rem;
     height: auto;
     border-radius: 0.5rem 0 0 0.5rem;
     box-shadow: 0 0.2rem 0.5rem rgba(59, 59, 59, 0.2);
