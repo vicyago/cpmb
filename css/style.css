@@ -28,6 +28,7 @@ body {
 .nav.scrolled {
   background-color: #ffffff; /* Change to white on scroll */
   border-bottom: 1px solid #f0f0f0; /* Thin, off-white border at the bottom */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle grayish drop shadow */
 }
 
 .nav.scrolled a {
@@ -160,6 +161,34 @@ main {
   color: #ffffff; /* Set the desired text color */
 }
 
+/* Container for the floating boxes */
+.floating-box-container {
+  position: absolute;
+  bottom: -20%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end; /* Align boxes to the bottom */
+  margin-top: auto; /* Move boxes to the bottom */
+  z-index: 3; /* Place above the overlay and slider */
+  height: 100%; /* Ensure the container takes full height */
+}
+
+/* Style for each floating box */
+.floating-box {
+  width: 20%; /* Adjust the width as needed */
+  height: 30vh;
+  background-color: rgba(255, 255, 255); /* White with 80% opacity */
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle grayish box shadow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 /* Media query to adjust styles for smaller screens */
 @media only screen and (max-width: 48rem) {
   /* Equivalent to 768px / 1.2 */
@@ -185,4 +214,29 @@ main {
     display: flex;
     flex-direction: column; /* Display items in a column */
   }
+
+    /* Centered text styles for mobile screens */
+    .centered-text {
+      top: 15%; /* Adjust as needed to vertically center the text */
+      transform: translate(-50%, -50%);
+    }
+  
+    .centered-text h1 {
+      font-size: 0.9rem; /* Adjust the font size for smaller screens */
+    }
+  
+    .centered-text p {
+      font-size: 0.7rem; /* Adjust the font size for smaller screens */
+    }
+
+    .floating-box-container {
+      flex-direction: column; /* Stack boxes vertically on smaller screens */
+      align-items: center;
+    }
+  
+    .floating-box {
+      width: 80%; /* Adjust the width for smaller screens */
+      margin-top: 1rem; /* Add spacing between stacked boxes */
+    }
+
 }

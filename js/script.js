@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Selecting elements from the DOM
   const nav = document.querySelector(".nav");
+  const logo = document.querySelector(".logo");
   const burgerMenu = document.querySelector(".burger-menu");
   const mobileMenu = document.querySelector(".mobile-menu");
   const mobileMenuItems = document.querySelectorAll(".mobile-menu a");
@@ -34,9 +35,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Additional code you want to run after DOMContentLoaded
   // You can add any other JavaScript code that should run after the page has loaded here
-});
 
-window.addEventListener('scroll', function () {
-  var nav = document.querySelector('.nav');
-  nav.classList.toggle('scrolled', window.scrollY > 0);
+  // Variable to store the original logo source
+  const originalLogoSrc = logo.src;
+
+  // Update the logo source after scrolling
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 0);
+
+    // Set the scroll threshold for logo change (adjust as needed)
+    const scrollThreshold = 200;
+
+    // Check the scroll position
+    const scrolled = window.scrollY;
+
+    // Change the logo source after scrolling past the threshold
+    if (scrolled > scrollThreshold) {
+      logo.src = "./img/sitelogo.png"; // Adjust the path to your second logo
+    } else {
+      logo.src = originalLogoSrc; // Revert to the original logo
+    }
+  });
 });
