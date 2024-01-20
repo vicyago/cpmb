@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector(".nav");
   const logo = document.querySelector(".logo");
   const burgerMenu = document.querySelector(".burger-menu");
+  const burgerBars = document.querySelectorAll(".burger-menu .bar");
   const mobileMenu = document.querySelector(".mobile-menu");
   const mobileMenuItems = document.querySelectorAll(".mobile-menu a");
 
@@ -33,21 +34,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Additional code you want to run after DOMContentLoaded
-  // You can add any other JavaScript code that should run after the page has loaded here
-
   // Variable to store the original logo source
   const originalLogoSrc = logo.src;
 
-  // Update the logo source after scrolling
+  // Update the logo source and burger menu bars background color after scrolling
+  let isScrollingUp = false;
+  let lastScrollTop = 0;
+
   window.addEventListener('scroll', function () {
     nav.classList.toggle('scrolled', window.scrollY > 0);
 
-    // Set the scroll threshold for logo change (adjust as needed)
+    // Set the scroll threshold for logo and menu bar change (adjust as needed)
     const scrollThreshold = 200;
 
     // Check the scroll position
     const scrolled = window.scrollY;
+
+    // Determine scrolling direction
+    isScrollingUp = scrolled < lastScrollTop;
 
     // Change the logo source after scrolling past the threshold
     if (scrolled > scrollThreshold) {
@@ -55,5 +59,16 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       logo.src = originalLogoSrc; // Revert to the original logo
     }
+
+    // Change the background color of burger menu bars after scrolling past the threshold
+    burgerBars.forEach(bar => {
+      if (scrolled > scrollThreshold) {
+        bar.style.backgroundColor = "black"; // Change to the desired color
+      } else {
+        bar.style.backgroundColor = ""; // Revert to default on scrolling back to the top
+      }
+    });
+
+    lastScrollTop = scrolled;
   });
 });
